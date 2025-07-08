@@ -1,0 +1,54 @@
+{
+    "free": {
+        "monthly": 0,
+        "yearly": 0,
+        "quota": 1,
+        "drives": 1
+    },
+    "basic": {
+        "id": "",
+        "id_yearly": "",
+        "monthly": 5,
+        "yearly": 55,
+        "quota": 5,
+        "drives": 1
+    },
+    "pro": {
+        "id": "",
+        "id_yearly": "",
+        "monthly": 10,
+        "yearly": 110,
+        "quota": 25,
+        "drives": 2
+    },
+    "power": {
+        "id": "",
+        "id_yearly": "",
+        "monthly": 15,
+        "yearly": 165,
+        "quota": 75,
+        "drives": 6
+    },
+    "org_s": {
+        "id": "",
+        "id_yearly": "",
+        "monthly": 50,
+        "yearly": 500,
+        "quota": 100,
+        "drives": 25,
+        "org": true
+    },
+    "org_large": {
+        "id": "",
+        "id_yearly": "",
+        "monthly": 100,
+        "yearly": 1000,
+        "quota": 150,
+        "drives": 100,
+        "org": true
+    },
+    "cloud": {
+        "org": true,
+        "cloud": true
+    }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "cryptpad-accounts",
+  "description": "CryptPad Accounts server",
+  "version": "1.0.0",
+  "license": "AGPL-3.0+",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptpad/accounts-server.git"
+  },
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "axios": "^1.9.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "~4.21.2",
+    "jwt-simple": "^0.5.6",
+    "knex": "^3.1.0",
+    "multer": "^2.0.1",
+    "mysql": "^2.13.0",
+    "nthen": "^0.1.8",
+    "pdf-lib": "^1.17.1",
+    "sqlite3": "^5.1.7",
+    "stripe": "^18.2.0",
+    "tweetnacl": "^1.0.3",
+    "tweetnacl-util": "^0.15.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "eslint": "^9.30.1",
+    "globals": "^16.3.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node server.js"
+  }
+}
