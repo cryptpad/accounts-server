@@ -8,6 +8,7 @@
     "basic": {
         "id": "",
         "id_yearly": "",
+        "name": "Personal",
         "monthly": 5,
         "yearly": 55,
         "quota": 5,
@@ -16,6 +17,7 @@
     "pro": {
         "id": "",
         "id_yearly": "",
+        "name": "Duo",
         "monthly": 10,
         "yearly": 110,
         "quota": 25,
@@ -24,6 +26,7 @@
     "power": {
         "id": "",
         "id_yearly": "",
+        "name": "Team",
         "monthly": 15,
         "yearly": 165,
         "quota": 75,
@@ -32,6 +35,7 @@
     "org_s": {
         "id": "",
         "id_yearly": "",
+        "name": "Org 25",
         "monthly": 50,
         "yearly": 500,
         "quota": 100,
@@ -41,6 +45,7 @@
     "org_large": {
         "id": "",
         "id_yearly": "",
+        "name": "Org 100",
         "monthly": 100,
         "yearly": 1000,
         "quota": 150,
@@ -48,7 +53,9 @@
         "org": true
     },
     "cloud": {
+        "name": "CryptPad Cloud",
         "org": true,
-        "cloud": true
+        "cloud": true,
+        "url": "https://cryptpad.org/pricing/#full"
     }
 }
