@@ -11,7 +11,7 @@ const cors = require('cors');
 const Axios = require('axios');
 const multer = require('multer'); // Process formdata: upload DPA
 const Plans = require('./config/plans');
-const { getBasePlan, parseUser, ENABLED_STATUS,
+const { getBasePlan, parseUser, ENABLED_STATUS, mkRandomCookie,
         now, log, error } = require('./lib/utils');
 
 const commands = require('./lib/commands');
@@ -286,6 +286,33 @@ const onStripeWebhook = (ctx, req, res) => {
     res.send();
 };
 
+const latestVersion = '2025.6.0';
+const latestVersionURL = 'https://github.com/cryptpad/cryptpad/releases/' + latestVersion;
+const respondWithUpdateAvailable = function (req, res) {
+    const k = mkRandomCookie();
+    const location = 'getauthorized';
+    const type = 'EINVAL';
+    const body = {
+        message: type,
+        location: location,
+        k: k,
+        version: latestVersion,
+        updateAvailable: latestVersionURL,
+    };
+    //log(['ERR', k, location, type, '', req.body]);
+    res.send(body);
+};
+
+const getAuthorized = (ctx, req, res) => {
+    const domain = req.body.domain;
+    const subdomain = req.body.subdomain || domain;
+
+    if ((config?.ignoredDomains || []).includes(domain)) { return; }
+
+    log(["DEBUG", "getauthorized", req.headers['x-real-ip'], req.body]);
+
+    return respondWithUpdateAvailable(req, res);
+};
 
 
 const getQuota = (ctx, req, res) => {
@@ -693,6 +720,9 @@ const main = () => {
         AuthCommands.handle(ctx, req, res, true);
     });
 
+    ctx.app.post('/api/getauthorized', (req, res) => {
+        getAuthorized(ctx, req, res);
+    });
     ctx.app.post('/api/getquota', (req, res) => {
         getQuota(ctx, req, res);
     });
