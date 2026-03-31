@@ -16,7 +16,7 @@ module.exports = {
     // Database config as a knex configuration object:
     // https://knexjs.org/guide/#configuration-options
     database: {
-        client: 'sqlite3',
+        client: 'better-sqlite3',
         connection: {
             filename: "./data/store.sqlite"
         },
