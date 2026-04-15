@@ -34,4 +34,6 @@ module.exports = {
 
     // cryptpadOrigin: the instance connected to this accounts server
     cryptpadOrigin: 'https://cryptpad.fr',
+    // cryptpadSecret: secret key used to authenticate queries between the servers
+    cryptpadSecret: ''
 };

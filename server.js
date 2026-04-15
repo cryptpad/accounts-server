@@ -8,11 +8,10 @@ const Dns = require('dns');
 const Stripe = require('stripe');
 const nThen = require('nthen');
 const cors = require('cors');
-const Axios = require('axios');
 const multer = require('multer'); // Process formdata: upload DPA
 const Plans = require('./config/plans');
 const { getBasePlan, parseUser, ENABLED_STATUS, mkRandomCookie,
-        now, log, error } = require('./lib/utils');
+        forceCryptPadUpdate, now, log, error } = require('./lib/utils');
 
 const commands = require('./lib/commands');
 AuthCommands.setCommands(commands);
@@ -29,21 +28,6 @@ const getPlanFromPrice = price => {
     });
     return planId ? `${planId}${isYearly}` : price;
 };
-
-const forceCryptPadUpdate = () => {
-    const origin = config.cryptpadOrigin;
-    if (!origin) { return; }
-    Axios.get(origin + '/api/updatequota').then(() => {
-        log(['INFO', 'forceQuotaUpdate', 'success']);
-    }).catch((err) => {
-        //console.error(err);
-        error(["EUPDATE", "Can't update quota on CryptPad instance", err.status]);
-    });
-};
-
-
-
-
 
 /** cancelSubscription
  * - called when we want to subscribe to a new plan but we already
