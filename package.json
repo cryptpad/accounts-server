@@ -35,5 +35,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node server.js"
+  },
+  "allowScripts": {
+    "better-sqlite3": false
   }
 }
