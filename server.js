@@ -521,8 +521,10 @@ const queryStripe = (ctx, cb) => {
                                       planData?.id_yearly === price;
                         if (!match) {
                             log(['WARNING', 'queryStripe', "mismatch plan", nq.id + '-' + nq.plan + '-' + subscription.plan.id]);
-                            plan = getPlanFromPrice(price);
                         }
+                        // always update (even if "match" is true) in case
+                        // of a billing cycle change
+                        plan = getPlanFromPrice(price);
 
                         if (ENABLED_STATUS.indexOf(status) === -1) {
                             end_time = (subscription.current_period_start || subscription.canceled_at) * 1000;
